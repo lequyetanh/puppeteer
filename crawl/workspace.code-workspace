@@ -1,0 +1,19 @@
+{
+	"folders": [
+    {
+      "name": "Trash",
+      "path": "..\\.."
+    },
+    {
+      "path": "F:\\xemphimplus_v3"
+    },
+    {
+      "path": "..\\..\\..\\Angular\\Hubmovie"
+    }
+  ],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "game_co_vua",
+    "git.ignoreLimitWarning": true,
+		"editor.tabSize": 2
+	}
+}

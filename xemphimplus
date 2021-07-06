@@ -1,0 +1,44 @@
+const puppeteer = require('puppeteer');
+const download = require('image-downloader');
+const imgLinks = [
+    'https://movie.xemphim.one/movie/wonder-woman-1984~6629',
+    'https://movie.xemphim.one/movie/soul~6630',
+    'https://movie.xemphim.one/movie/army-of-one~6628',
+    'https://movie.xemphim.one/movie/we-can-be-heroes~6627',
+    'https://movie.xemphim.one/movie/the-doorman~6631',
+    'https://movie.xemphim.one/movie/class-of-83~6620',
+    'https://movie.xemphim.one/movie/patients-of-a-saint-inmate-zero~6622',
+    'https://movie.xemphim.one/movie/the-cure~6623',
+    'https://movie.xemphim.one/movie/god-of-war-zhao-zilong~6618',
+    'https://movie.xemphim.one/movie/the-midnight-sky~6619',
+    'https://movie.xemphim.one/movie/the-witches~6621',
+    'https://movie.xemphim.one/tv/emily-in-paris~6605'
+];
+
+for (let x = 0; x <= imgLinks.length; x++) {
+    (async () => {
+        const browser = await puppeteer.launch();
+        const page = await browser.newPage();
+        await page.goto(imgLinks[x]);
+
+        const information = await page.evaluate(() => {
+            let allMovie = [];
+            let eachMovie = {
+
+            };
+            let detail_Movie = document.querySelectorAll('.tt-details')[0];
+            try {
+                eachMovie['ten_tieng_anh'] = detail_Movie.querySelector('.main > .title').innerText;
+                eachMovie['ten_tieng_viet'] = detail_Movie.querySelector('.main .subtitle').innerText;
+                eachMovie['thoi_gian'] = detail_Movie.querySelector('.meta span').innerText;
+                eachMovie['dao_dien'] = detail_Movie.querySelector('.csv').innerText;
+                eachMovie['content'] = detail_Movie.querySelector('.intro ').innerText;
+            } catch (err) {
+                console.log(err)
+            }
+            allMovie.push(eachMovie);
+            return eachMovie;
+        });
+        console.log(information);
+    })();
+}
