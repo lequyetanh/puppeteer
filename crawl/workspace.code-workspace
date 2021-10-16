@@ -8,11 +8,11 @@
       "path": "F:\\xemphimplus_v3"
     },
     {
-      "path": "..\\..\\..\\Angular\\Hubmovie"
+      "path": "F:\\game"
     }
   ],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "game_co_vua",
+		"liveServer.settings.multiRootWorkspaceName": "facebook-clone",
     "git.ignoreLimitWarning": true,
 		"editor.tabSize": 2
 	}
